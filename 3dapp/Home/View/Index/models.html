@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Models</title>
+    <link rel="stylesheet" href="__PUBLIC__/css/x3dom.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="__PUBLIC__/css/style-starter.css">
+</head>
+<!--/Header-->
+
+<body>
+    <include file="Public:head" />
+    <!-- breadcrumb -->
+    <section class="w3l-about-breadcrumb">
+        <div class="breadcrumb-bg breadcrumb-bg-about">
+            <div class="container py-5">
+                <div class="w3breadcrumb-gids text-center py-sm-5 py-4">
+                    <div class="w3breadcrumb-info">
+                        <h2 class="w3ltop-title">Models</h2>
+                    </div>
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/">Home</a></li>
+                        <li class="active"><span class="fas fa-arrow-right mx-2"></span>Models</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="w3l-ab-page py-5" id="about1">
+        <div class="container py-lg-5 py-md-4 py-2 ">
+
+            <div class="title-content text-center">
+                <button class="btn btn-style btn-primary mt-lg-5 mt-4"
+                    style="background-color:#ffd900;color:black;border:1px solid #ffd900 " onclick="sprite(1)"
+                    id="sprite">SPRITE</button>
+                <button class="btn btn-style btn-primary mt-lg-5 mt-4" onclick="fenta(2)" id="fenta">Costa</button>
+                <button class="btn btn-style btn-primary mt-lg-5 mt-4" onclick="pepper(3)" id="pepper">Coca
+                    Cola</button>
+            </div>
+            <div class="row mt-5 pb-5 ab-inf-stat position-relative" id="zhanshi">
+
+                <div class="col-lg-6 abw3-img mb-lg-0 mb-5"
+                    style="width:580px;height:450px;border:1px solid #999999;border-radius:5px;" id="moban">
+                    <x3d id="x3domOrientationSceneView" width='500px' height='400px'>
+                        <scene DEF="scene">
+                            <Viewpoint id="front" position="0 120 500" orientation="0.00451 0.99989 0.00319 6.25833"
+                                description="camera"></Viewpoint>
+                            <Viewpoint id="right" position="-3.07427 50.25329 2010.79608"
+                                orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>
+                            <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722"
+                                description="camera"></Viewpoint>
+                            <Viewpoint id="top" position="0.05087 3.78235 -1.75890"
+                                orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>
+                            <directionalLight id="directional" direction="0 -1 0" on="TRUE" intensity="1.0"
+                                shadowIntensity="0.0">
+                            </directionalLight>
+
+                            <Transform id="rotation">
+
+                                <inline url="{$list[0]['tietu']}" id="tdModels">
+                                    <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>
+                                    <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>
+                                </inline>
+                            </Transform>
+                        </scene>
+                    </x3d>
+
+                </div>
+
+                <div class="col-lg-6 ps-lg-6">
+
+                    <div class="anniuceng">
+                        <div class="biaoti">Model classification</div>
+                        <div class="anniu" id="anqiuqun">
+                            <button class="jingguo" onclick="Texture({$list[0]['id']})" id="texture"
+                                style="background-color:#ffd900">Texture</button>
+                            <button class="jingguo" onclick="Grid({$list[0]['id']})" id="grid">Grid</button>
+                            <button class="jingguo" onclick="Protope({$list[0]['id']})"
+                                id="prototype">Prototype</button>
+                        </div>
+                    </div>
+                    <div class="anniuceng">
+                        <div class="biaoti">Camera Views</div>
+                        <div class="anniu">
+                            <button class="jingguo" onclick="default0()" id="moren">Default</button>
+                            <button class="jingguo" onclick="left()" id="zuo">Left</button>
+                            <button class="jingguo" onclick="right()" id="you">Right</button>
+                        </div>
+                    </div>
+                    <div class="anniuceng">
+                        <div class="biaoti">Animation Options</div>
+                        <div class="anniu">
+                            <button class="jingguo" onclick="rotateX()" id="rotx">RotX</button>
+                            <button class="jingguo" onclick="rotateY()" id="roty">RotY</button>
+                            <button class="jingguo" onclick="rotateZ()" id="rotz">RotZ</button>
+                            <button class="jingguo" onclick="stopAnimation()" id="stop">Stop</button>
+                        </div>
+                    </div>
+                    <div class="anniuceng">
+                        <div class="biaoti">Render And Lighting Options</div>
+                        <div class="anniu">
+                            <button class="jingguo" onclick="headLightOnOff()" id="lighton">Headlight</button>
+                            <button class="jingguo" onclick="lightDefault()" id="lightd">Default</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="__PUBLIC__/js/x3dom.js"></script>
+    <include file="Public:foot" />
+
+</body>
+
+</html>
+
+<script>
+
+
+
+</script>
+
+<script>
+    let rotateDom = document.querySelector('#rotation');
+    let spritesize = '-10 100 600';
+    let fentasize = '-45 -120 200';
+
+    let peppersize = '-100 0 600';
+    function sprite(id) {
+        $("#sprite").css("background-color", "#ffd900");
+        $("#sprite").css("color", "black");
+        $("#sprite").css("border", "1px solid #ffd900");
+        $("#fenta").css("background-color", "#2164f4");
+        $("#fenta").css("color", "white");
+        $("#fenta").css("border", "1px solid #2164f4");
+        $("#pepper").css("background-color", "#2164f4");
+        $("#pepper").css("color", "white");
+        $("#pepper").css("border", "1px solid #2164f4");
+
+
+        $("#texture").css("background-color", "#ffd900");
+        $("#grid").css("background-color", "white");
+        $("#prototype").css("background-color", "white");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["tietudaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["tietu"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+                reloadScript();
+                reloadCss();
+                $('#moban').html(html);
+
+                var html1 = '';
+                html1 += '<button class="jingguo" onclick="Texture(' + res[0]["id"] + ')" id="texture" style="background-color:#ffd900">Texture</button>';
+                html1 += ' <button class="jingguo" onclick="Grid(' + res[0]["id"] + ')" id="grid">Grid</button>';
+                html1 += ' <button class="jingguo" onclick="Protope(' + res[0]["id"] + ')" id="prototype">Prototype</button>';
+                $('#anqiuqun').html(html1);
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+
+    }
+
+    function fenta(id) {
+
+        $("#fenta").css("background-color", "#ffd900");
+        $("#fenta").css("color", "black");
+        $("#fenta").css("border", "1px solid #ffd900");
+        $("#sprite").css("background-color", "#2164f4");
+        $("#sprite").css("color", "white");
+        $("#sprite").css("border", "1px solid #2164f4");
+        $("#pepper").css("background-color", "#2164f4");
+        $("#pepper").css("color", "white");
+        $("#pepper").css("border", "1px solid #2164f4");
+
+        $("#texture").css("background-color", "#ffd900");
+        $("#grid").css("background-color", "white");
+        $("#prototype").css("background-color", "white");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["tietudaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["tietu"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+                reloadScript();
+                reloadCss();
+                $('#moban').html(html);
+
+                var html1 = '';
+                html1 += '<button class="jingguo" onclick="Texture(' + res[0]["id"] + ')" id="texture" style="background-color:#ffd900">Texture</button>';
+                html1 += ' <button class="jingguo" onclick="Grid(' + res[0]["id"] + ')" id="grid">Grid</button>';
+                html1 += ' <button class="jingguo" onclick="Protope(' + res[0]["id"] + ')" id="prototype">Prototype</button>';
+                $('#anqiuqun').html(html1);
+
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+
+    }
+    function pepper(id) {
+
+        $("#pepper").css("background-color", "#ffd900");
+        $("#pepper").css("color", "black");
+        $("#pepper").css("border", "1px solid #ffd900");
+        $("#fenta").css("background-color", "#2164f4");
+        $("#fenta").css("color", "white");
+        $("#fenta").css("border", "1px solid #2164f4");
+        $("#sprite").css("background-color", "#2164f4");
+        $("#sprite").css("color", "white");
+        $("#sprite").css("border", "1px solid #2164f4");
+
+        $("#texture").css("background-color", "#ffd900");
+        $("#grid").css("background-color", "white");
+        $("#prototype").css("background-color", "white");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["tietudaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["tietu"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+                reloadScript();
+                reloadCss();
+                $('#moban').html(html);
+
+                var html1 = '';
+                html1 += '<button class="jingguo" onclick="Texture(' + res[0]["id"] + ')" id="texture" style="background-color:#ffd900">Texture</button>';
+                html1 += ' <button class="jingguo" onclick="Grid(' + res[0]["id"] + ')" id="grid">Grid</button>';
+                html1 += ' <button class="jingguo" onclick="Protope(' + res[0]["id"] + ')" id="prototype">Prototype</button>';
+                $('#anqiuqun').html(html1);
+
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+
+    }
+
+    let y = 1;
+    let rotateYInterval = null;
+
+
+
+    function rotateY() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation();
+        if (rotateYInterval) {
+            clearInterval(rotateYInterval);
+            rotateYInterval = null;
+        } else {
+            rotateYInterval = setInterval(() => {
+                y += 0.01;
+                rotateDom.setAttribute('rotation', "0,1,0," + y);
+            }, 5)
+        }
+
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "#ffd900");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+    }
+
+
+    let z = 1;
+    let rotateZInterval = null;
+    function rotateZ() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation();
+
+        if (rotateZInterval) {
+            clearInterval(rotateZInterval);
+            rotateZInterval = null;
+        } else {
+            rotateZInterval = setInterval(() => {
+                z += 0.01;
+                rotateDom.setAttribute('rotation', "0,0,1," + z);
+            }, 5)
+        }
+
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "#ffd900");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+    }
+
+    let x = 1;
+    let rotateXInterval = null;
+    function rotateX() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation();
+        if (rotateXInterval) {
+            clearInterval(rotateXInterval);
+            rotateXInterval = null;
+        } else {
+            rotateXInterval = setInterval(() => {
+                x += 0.01;
+
+                rotateDom.setAttribute('rotation', "1,0,0," + x);
+            }, 5)
+        }
+        $("#rotx").css("background-color", "#ffd900");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+    }
+
+    function stopAnimation() {
+        if (rotateXInterval) {
+            clearInterval(rotateXInterval);
+            rotateXInterval = null;
+        }
+        if (rotateZInterval) {
+            clearInterval(rotateZInterval);
+            rotateZInterval = null;
+        }
+        if (rotateYInterval) {
+            clearInterval(rotateYInterval);
+            rotateYInterval = null;
+        }
+
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "#ffd900");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+    }
+
+
+    function stopAnimation1() {
+        if (rotateXInterval) {
+            clearInterval(rotateXInterval);
+            rotateXInterval = null;
+        }
+        if (rotateZInterval) {
+            clearInterval(rotateZInterval);
+            rotateZInterval = null;
+        }
+        if (rotateYInterval) {
+            clearInterval(rotateYInterval);
+            rotateYInterval = null;
+        }
+
+
+    }
+
+
+
+    let headLightDom = document.querySelector('#head');
+    let onOrOff = true;
+    function headLightOnOff() {
+        let rotateDom = document.querySelector('#rotation');
+        let headLightDom = document.querySelector('#head');
+
+        if (onOrOff) {
+            headLightDom.setAttribute('headlight', 'false');
+            onOrOff = false;
+        } else {
+            headLightDom.setAttribute('headlight', 'true');
+            onOrOff = true;
+        }
+        $("#lighton").css("background-color", "#ffd900");
+        $("#lightd").css("background-color", "white");
+    }
+    function lightDefault() {
+        let rotateDom = document.querySelector('#rotation');
+        let headLightDom = document.querySelector('#head');
+        headLightDom.setAttribute('headlight', 'true');
+        onOrOff = true;
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "#ffd900");
+    }
+
+    function left() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation1();
+        rotateDom.setAttribute("rotation", "0,1,0,1.5");
+
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "#ffd900");
+    }
+
+    function default0() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation1();
+        rotateDom.setAttribute("rotation", "0,1,0,0");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "#ffd900");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+
+    }
+
+    function right() {
+        let rotateDom = document.querySelector('#rotation');
+        stopAnimation1();
+        rotateDom.setAttribute("rotation", "0,1,0,-1.5");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "#ffd900");
+        $("#zuo").css("background-color", "white");
+    }
+
+
+    function Texture(id) {
+
+        $("#texture").css("background-color", "#ffd900");
+        $("#grid").css("background-color", "white");
+        $("#prototype").css("background-color", "white");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["tietudaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["tietu"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+
+                $('#moban').html(html);
+                reloadScript();
+                reloadCss();
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+    }
+
+    function Grid(id) {
+        $("#texture").css("background-color", "white");
+        $("#grid").css("background-color", "#ffd900");
+        $("#prototype").css("background-color", "white");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["wanggedaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["wangge"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+
+                reloadScript();
+                reloadCss();
+                $('#moban').html(html);
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+    }
+
+    function Protope(id) {
+        $("#texture").css("background-color", "white");
+        $("#grid").css("background-color", "white");
+        $("#prototype").css("background-color", "#ffd900");
+        $("#rotx").css("background-color", "white");
+        $("#roty").css("background-color", "white");
+        $("#rotz").css("background-color", "white");
+        $("#stop").css("background-color", "white");
+        $("#moren").css("background-color", "white");
+        $("#you").css("background-color", "white");
+        $("#zuo").css("background-color", "white");
+        $("#lighton").css("background-color", "white");
+        $("#lightd").css("background-color", "white");
+        $.ajax({
+            url: 'https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/index.php/Home/Index/modelshow11',
+            type: 'get',
+            dataType: 'json',
+            data: { id: id },
+            success: function (res) {
+
+                var html = '';
+                html += '<x3d id="x3domOrientationSceneView" width="500px" height="400px" >';
+                html += ' <scene  DEF="scene">';
+                html += ' <Viewpoint id="front" position="' + res[0]["yuanxingdaxiao"] + '" orientation="0.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="right" position="-3.07427 50.25329 2010.79608" orientation="1.00451 0.99989 0.00319 6.25833" description="camera"></Viewpoint>';
+                html += ' <Viewpoint id="left" position="-60 100 600" orientation="0.00451 0.99612 -0.03175 1.73722" description="camera"></Viewpoint>';
+                html += '<Viewpoint id="top" position="0.05087 3.78235 -1.75890" orientation="0.00451 0.87466 0.48473 3.12040" description="camera"></Viewpoint>';
+                html += ' <directionalLight id="directional" direction="0 -1 0" on ="TRUE" intensity="1.0" shadowIntensity="0.0">';
+                html += '</directionalLight>';
+
+                html += ' <Transform  id="rotation">';
+
+                html += '<inline   url="' + res[0]["yuanxing"] + '" id="tdModels">';
+                html += ' <navigationInfo id="head" headlight="true" type="EXAMINE"></navigationInfo>';
+                html += ' <Background groundColor="(1,1,1)" skyColor="(1,1,1)"></Background>';
+                html += '</inline>';
+                html += ' </Transform>';
+                html += '</scene>';
+                html += '</x3d>';
+                reloadScript();
+                reloadCss();
+                $('#moban').html(html);
+            }, error: function (res) {
+                alert(res)
+            }
+        });
+    }
+
+
+
+    function reloadScript() {
+
+        //$('script[src="http://www.3dapp.com/Public/js/x3dom.js"]').remove();
+
+
+        $.getScript('https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/Public/js/x3dom.js', function () {
+
+            console.log('重新加载成功');
+        });
+    }
+
+
+
+
+    // 获取 CSS 文件的 URL
+    var cssUrl = "https://users.sussex.ac.uk/~yy414/3dapp/assignmnet/Public/css/x3dom.css";
+
+    // 定义重新加载 CSS 文件的函数
+    function reloadCss() {
+        // 移除之前加载的 CSS 文件
+        // $("link[rel='stylesheet']").remove();
+
+        // 创建新的 link 元素，并设置其属性
+        var link = $("<link>", {
+            rel: "stylesheet",
+            type: "text/css",
+            href: cssUrl
+        });
+
+        // 将 link 元素添加到 head 元素中
+        $("head").append(link);
+    }
+
+</script>

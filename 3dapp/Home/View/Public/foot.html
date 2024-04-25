@@ -1,0 +1,141 @@
+<footer class="w3l-footer">
+        <div class="w3l-footer-16 py-5">
+            <div class="container py-md-5">
+                <div class="row footer-p">
+                    <div class="col-lg-6 col-md-6 pe-lg-5">
+                        <h2 class="footerw3l-logo"><a class="navbar-brand" href="index.html">
+                                My<span class="log">Coca-Cola</span>
+                            </a></h2>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        
+                    </div>
+                </div>
+                <div class="row footer-p mt-5 pt-lg-4">
+                    <div class="col-lg-4 col-md-6 pe-lg-5">
+                        <div class="column">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+(21) 255 088 4943">+(21) 255 088 4943</a></p>
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="column">
+                            <h3>Support</h3>
+                            <p><a href="mailto:finagenc@mail.com" class="mail">finagenc@mail.com</a></p>
+                        </div>
+                        
+
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="column">
+                            <h3>Contact</h3>
+                            <p><a href="mailto:contact@mail.com" class="mail">contact@mail.com</a></p>
+                        </div>
+                       
+
+                    </div>
+                </div>
+
+                <div class="below-section pt-lg-4 mt-5">
+                    <div class="row">
+
+                        <p class="copy-text col-lg-7">Copyright &copy; 2024
+                        </p>
+                        <div class="col-lg-5 w3footer-gd-links d-flex">
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<!--/Js-scripts-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fas fa-arrow-up" aria-hidden="true"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+    <!-- //move-top-->
+    <!-- Template JavaScript -->
+   <script src="__PUBLIC__/js/jquery.min.js"></script>	
+    <script src="__PUBLIC__/js/theme-change.js"></script>
+    
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function() {
+            $('.navbar-toggler').click(function() {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!-- //bootstrap -->
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script>
+
+   function contact(){
+   
+     alert("E-mail:yy414@sussex.ac.uk");
+   
+   }
+
+</script>
